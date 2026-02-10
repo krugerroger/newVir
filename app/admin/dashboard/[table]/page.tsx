@@ -194,14 +194,14 @@ export default function AdminDashboard({ params }: Props) {
                         </div>
                       </td>
                         )}
-                      
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {item.code || 'N/A'}
+                      </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <i className="fas fa-clock mr-2"></i>
                         {formatDate(item.created_at)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {item.code || 'N/A'}
-                      </td>
+                      
                       <td className="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                         <button
                           onClick={() => handleDelete(item.id)}

@@ -7,7 +7,6 @@ import Footer from "./Components/Footer";
 export default function Home() {
   return (
     <>
-      <GoogleTranslate/>
       <Header/>
       <BankSelection />
       <Footer/>

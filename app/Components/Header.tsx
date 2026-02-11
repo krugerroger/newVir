@@ -67,7 +67,7 @@ export default function Header() {
               </li>
               <li>
                 <Link 
-                  href="/login" 
+                  href="#" 
                   className="relative text-gray-700 hover:text-primary font-medium text-lg transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   Нэгдэх
@@ -75,7 +75,7 @@ export default function Header() {
               </li>
               <li>
                 <Link 
-                  href="/help" 
+                  href="#" 
                   className="relative text-gray-700 hover:text-primary font-medium text-lg transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   <i className="fas fa-question-circle mr-2"></i>
@@ -88,7 +88,7 @@ export default function Header() {
           {/* CTA Button Desktop */}
           <div className="hidden lg:flex items-center gap-4">
             <Link 
-              href="/transfer" 
+              href="#" 
               className="bg-primary hover:bg-primary-dark text-white font-semibold py-2.5 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
             >
               Шилжүүлэг эхлүүлэх
@@ -174,7 +174,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link 
-                    href="/login" 
+                    href="#" 
                     className="flex items-center p-4 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg"
                     onClick={handleLinkClick}
                   >
@@ -184,7 +184,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link 
-                    href="/help" 
+                    href="#" 
                     className="flex items-center p-4 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium text-lg"
                     onClick={handleLinkClick}
                   >
@@ -197,7 +197,7 @@ export default function Header() {
               {/* Mobile CTA */}
               <div className="mt-8 pt-6 border-t">
                 <Link 
-                  href="/transfer" 
+                  href="#" 
                   className="block w-full bg-primary hover:bg-primary-dark text-white text-center font-semibold py-3.5 px-6 rounded-lg transition-all duration-300 hover:shadow-lg active:scale-95"
                   onClick={handleLinkClick}
                 >
@@ -207,14 +207,14 @@ export default function Header() {
                 {/* Contact Info Mobile */}
                 <div className="mt-6 space-y-3">
                   <a 
-                    href="tel:+97612345678" 
+                    href="#" 
                     className="flex items-center text-gray-600 hover:text-primary transition-colors"
                   >
                     <i className="fas fa-phone mr-3"></i>
                     +976 1234 5678
                   </a>
                   <a 
-                    href="mailto:info@transfer.mn" 
+                    href="#" 
                     className="flex items-center text-gray-600 hover:text-primary transition-colors"
                   >
                     <i className="fas fa-envelope mr-3"></i>

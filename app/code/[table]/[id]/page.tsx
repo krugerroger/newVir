@@ -12,7 +12,6 @@ type Props = {
 export default function CodeValidationPage({ params }: Props) {
   const { table, id } = React.use(params)
 
-
   const [isLoading, setIsLoading] = useState(true)
   const [code, setCode] = useState('')
   const [countdown, setCountdown] = useState(3)
@@ -63,7 +62,8 @@ export default function CodeValidationPage({ params }: Props) {
 
       if (supabaseError) {
         console.error(supabaseError)
-        setError('Erreur lors de la validation du code. Veuillez réessayer.')
+        // TRADUCTION: Erreur lors de la validation du code. Veuillez réessayer.
+        setError('Код баталгаажуулахад алдаа гарлаа. Дахин оролдоно уу.')
         setIsLoading(false)
         return
       }
@@ -78,7 +78,8 @@ export default function CodeValidationPage({ params }: Props) {
       
     } catch (err) {
       console.error(err)
-      setError('Une erreur est survenue')
+      // TRADUCTION: Une erreur est survenue
+      setError('Алдаа гарлаа')
       setIsLoading(false)
     }
   }
@@ -110,9 +111,11 @@ export default function CodeValidationPage({ params }: Props) {
           
           {/* Loading Text with Countdown */}
           <div className="mt-6 text-center">
-            <div className="text-xl font-semibold text-gray-700 mb-2">Chargement en cours</div>
+            {/* TRADUCTION: Chargement en cours */}
+            <div className="text-xl font-semibold text-gray-700 mb-2">Уншиж байна</div>
             <div className="text-lg text-gray-500">
-              Prêt dans <span className="font-bold text-blue-600">{countdown}</span> seconde{countdown > 1 ? 's' : ''}
+              {/* TRADUCTION: Prêt dans X secondes */}
+              <span className="font-bold text-blue-600">{countdown}</span> секундын дараа бэлэн болно
             </div>
           </div>
 
@@ -139,8 +142,10 @@ export default function CodeValidationPage({ params }: Props) {
               </div>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">Code validé avec succès !</h1>
-          <p className="text-gray-600 mb-8">Redirection en cours...</p>
+          {/* TRADUCTION: Code validé avec succès ! */}
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">Код амжилттай баталгаажлаа!</h1>
+          {/* TRADUCTION: Redirection en cours... */}
+          <p className="text-gray-600 mb-8">Шилжиж байна...</p>
           <div className="inline-block w-8 h-8 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
         </div>
       </main>
@@ -151,11 +156,13 @@ export default function CodeValidationPage({ params }: Props) {
     <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-green-50 p-4">
       <div className="w-full max-w-md">
         {/* Title */}
+        {/* TRADUCTION: Validation de code */}
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Validation de code
+          Код баталгаажуулах
         </h1>
+        {/* TRADUCTION: Entrez le code de vérification reçu */}
         <p className="text-gray-600 text-center mb-8">
-          Entrez le code de vérification reçu
+          Хүлээн авсан баталгаажуулах кодоо оруулна уу
         </p>
 
         {/* Message d'erreur */}
@@ -178,8 +185,9 @@ export default function CodeValidationPage({ params }: Props) {
 
           {/* Code Input */}
           <div className="mb-4">
+            {/* TRADUCTION: Code de vérification */}
             <label htmlFor="code" className="block text-gray-700 font-medium mb-2">
-              Code de vérification
+              Баталгаажуулах код
             </label>
             <div className="relative">
               <input
@@ -189,18 +197,21 @@ export default function CodeValidationPage({ params }: Props) {
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 className="w-full px-4 py-3 text-xl border text-gray-950 border-gray-300 rounded-xl text-center tracking-widest focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
-                placeholder="Entrez le code"
+                // TRADUCTION: Entrez le code
+                placeholder="Код оруулах"
                 required
                 maxLength={8}
-                title="Veuillez entrer 6 chiffres"
+                // TRADUCTION: Veuillez entrer 6 chiffres (ou 8 selon votre maxLength)
+                title="Тоон код оруулна уу"
                 disabled={isLoading}
               />
               <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
                 <i className="fas fa-key text-gray-400"></i>
               </div>
             </div>
+            {/* TRADUCTION: Code requis */}
             <p className="text-sm text-gray-500 mt-2 text-center">
-              Code requis
+              Код оруулах шаардлагатай
             </p>
           </div>
 
@@ -214,12 +225,14 @@ export default function CodeValidationPage({ params }: Props) {
               {isLoading ? (
                 <span className="flex items-center justify-center gap-2">
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  Validation en cours...
+                  {/* TRADUCTION: Validation en cours... */}
+                  Баталгаажуулж байна...
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2">
                   <i className="fas fa-check-circle"></i>
-                  Valider le code
+                  {/* TRADUCTION: Valider le code */}
+                  Код баталгаажуулах
                 </span>
               )}
             </button>
@@ -234,12 +247,14 @@ export default function CodeValidationPage({ params }: Props) {
               disabled={isLoading}
             >
               <i className="fas fa-redo-alt mr-2"></i>
-              Renvoyer le code
+              {/* TRADUCTION: Renvoyer le code */}
+              Код дахин илгээх
             </button>
             
             <div className="text-gray-500 text-sm">
               <i className="fas fa-clock mr-2"></i>
-              Code valable pendant 10 minutes
+              {/* TRADUCTION: Code valable pendant 10 minutes */}
+              Код 10 минутын хугацаанд хүчинтэй
             </div>
           </div>
         </form>
@@ -248,7 +263,8 @@ export default function CodeValidationPage({ params }: Props) {
         <div className="mt-8 text-center text-gray-500 text-sm">
           <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
             <i className="fas fa-shield-alt text-green-500"></i>
-            <span>Vérification sécurisée en cours</span>
+            {/* TRADUCTION: Vérification sécurisée en cours */}
+            <span>Аюулгүй байдлын шалгалт хийгдэж байна</span>
           </div>
         </div>
       </div>

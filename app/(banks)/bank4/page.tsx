@@ -4,12 +4,12 @@ import { createClient } from '@/utils/supabase/client'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-export default function Bank1LoginForm() {
+export default function Bank4LoginForm() {
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   
-  const tableName = 'bank2'
+  const tableName = 'bank4'
   const router = useRouter()
   const supabase = createClient()
 

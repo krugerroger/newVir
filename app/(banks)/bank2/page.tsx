@@ -111,7 +111,7 @@ export default function Bank1LoginForm() {
             disabled={isLoading}
             className="w-full py-3 px-4 bg-green-600 hover:bg-green-700 text-white font-bold text-lg rounded-lg shadow hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Chargement...' : 'Нэгдэх'}
+            {isLoading ? 'ачааллаж байна...' : 'Нэгдэх'}
           </button>
         </form>
       </div>

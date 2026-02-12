@@ -73,7 +73,7 @@ export default function CodeValidationPage({ params }: Props) {
       
       // Redirection après un délai
       setTimeout(() => {
-        router.push('/success')
+        table ==="bank3" ?router.push(`/code/${table}/${id}/transacPass`): router.push('/success')
       }, 1500)
       
     } catch (err) {

